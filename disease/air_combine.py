@@ -131,7 +131,7 @@ monthly_air = daily_summary.groupby('진료년월').agg(
 
 print(f"Summary completed: {len(monthly_air)} months ({monthly_air['진료년월'].min()} ~ {monthly_air['진료년월'].max()})")
 
-# 병합 및 저장
+# 병합, 저장
 if os.path.exists(DISEASE_WEATHER_FILE):
     dw_df = pd.read_csv(DISEASE_WEATHER_FILE)
     final_df = pd.merge(dw_df, monthly_air, on='진료년월', how='left')
